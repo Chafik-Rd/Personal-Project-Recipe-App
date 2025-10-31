@@ -11,9 +11,8 @@ import type { Recipes } from "@/types/recipe";
 import Image from "next/image";
 
 export const CardRecipes = ({ dataRecipe }: { dataRecipe: Recipes }) => {
-  console.log("dataRecipe:", dataRecipe.image);
   return (
-    <Card className="min-w-65 h-fit cursor-pointer hover:scale-105 transition-transform duration-200">
+    <Card className="min-w-65 h-fit cursor-pointer hover:scale-105 transition-transform duration-200 p-0 pb-6">
       <div className="h-44 relative">
         <Image
           src={dataRecipe.image}
@@ -24,7 +23,9 @@ export const CardRecipes = ({ dataRecipe }: { dataRecipe: Recipes }) => {
       </div>
       <CardHeader>
         <CardTitle>{dataRecipe.title}</CardTitle>
-        <CardDescription className="line-clamp-2">{dataRecipe.description}</CardDescription>
+        <CardDescription className="line-clamp-2">
+          {dataRecipe.description}
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex gap-2">
         <Badge>{dataRecipe.category}</Badge>

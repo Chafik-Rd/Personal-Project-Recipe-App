@@ -19,7 +19,7 @@ export const TopNav = () => {
         scrollY > 100 ? "bg-black/80" : "bg-black"
       }`}
     >
-      <div className="h-20 flex items-center justify-between px-8 border-b">
+      <div className="flex h-20 items-center justify-between border-b px-8">
         <p className="text-xl font-bold">Recipe</p>
         <div className="flex items-center gap-4">
           <Button>Add Recipe</Button>
