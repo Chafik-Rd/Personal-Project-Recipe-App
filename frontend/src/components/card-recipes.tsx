@@ -12,13 +12,13 @@ import Image from "next/image";
 
 export const CardRecipes = ({ dataRecipe }: { dataRecipe: Recipes }) => {
   return (
-    <Card className="min-w-65 h-fit cursor-pointer hover:scale-105 transition-transform duration-200 p-0 pb-6">
-      <div className="h-44 relative">
+    <Card className="h-fit min-w-65 cursor-pointer p-0 pb-6 transition-transform duration-200 hover:scale-105">
+      <div className="relative h-44">
         <Image
           src={dataRecipe.image}
           alt={dataRecipe.title}
           fill
-          className="object-cover rounded-t-xl"
+          className="rounded-t-xl object-cover"
         />
       </div>
       <CardHeader>
@@ -28,11 +28,13 @@ export const CardRecipes = ({ dataRecipe }: { dataRecipe: Recipes }) => {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex gap-2">
-        <Badge>{dataRecipe.category}</Badge>
-        <Badge>{dataRecipe.category}</Badge>
+        {dataRecipe.category.length > 0 &&
+          dataRecipe.category.map((category, index) => (
+            <Badge key={index}>{category}</Badge>
+          ))}
       </CardContent>
       <CardFooter className="flex justify-end">
-        <p className="text-xs">createdAt: {dataRecipe.createdAt}</p>
+        <p className="text-xs text-muted-foreground">created at: {dataRecipe.createdAt}</p>
       </CardFooter>
     </Card>
   );
