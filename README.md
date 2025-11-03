@@ -1,7 +1,7 @@
 # 🍳 Recipe App (Fullstack CRUD)
 
 A simple fullstack recipe manager built with:
-- Frontend: Next.js
+- Frontend: Next.js, Tailwind CSS, Shadcn UI
 - Backend: Elysia
 
 ## Features
