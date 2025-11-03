@@ -3,8 +3,12 @@
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
+import { useModal } from "./context/modal-context";
 
 export const TopNav = () => {
+  const { open } = useModal();
+
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -13,6 +17,7 @@ export const TopNav = () => {
     };
     window.addEventListener("scroll", handleScroll);
   }, [scrollY]);
+
   return (
     <nav
       className={`sticky top-0 z-10 backdrop-blur-md ${
@@ -22,7 +27,10 @@ export const TopNav = () => {
       <div className="flex h-20 items-center justify-between border-b px-8">
         <p className="text-xl font-bold">Recipe</p>
         <div className="flex items-center gap-4">
-          <Button>Add Recipe</Button>
+          <Button onClick={open}>
+            <Plus />
+            Add Recipe
+          </Button>
           <p>login</p>
         </div>
       </div>
